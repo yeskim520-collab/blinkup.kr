@@ -35,75 +35,82 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="px-6 pt-10 pb-16 bg-white animate-fade-in">
-      {/* Header */}
-      <div className="space-y-3">
-        <span className="text-[13px] font-bold tracking-tight text-black uppercase">
-          Selected Works
-        </span>
-        <h1 className="text-[34px] sm:text-[38px] font-normal tracking-[-0.025em] text-black leading-[1.3] font-serif-display">
-          실질적인 변화를 만든<br />
-          주요 프로젝트
-        </h1>
-        <p className="mt-4 text-[15px] leading-[1.75] text-black font-normal tracking-[-0.015em]">
-          BlinkUp이 다양한 파트너들과 함께 만들어낸 전략적 성공 사례와 디지털 제품들을 소개합니다.
-        </p>
-      </div>
-
-      {/* Projects List */}
-      <div className="mt-10 border-t border-black">
-        {projects.map((proj) => (
-          <div
-            key={proj.id}
-            className="py-6 border-b border-black space-y-3"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-[12px] font-black text-black uppercase">
-                {proj.client}
+    <div className="w-full bg-white px-6 md:px-12 lg:px-16 xl:px-20 pt-10 pb-16 lg:py-20 animate-fade-in">
+      <div className="max-w-[1360px] mx-auto w-full">
+        {/* Desktop 2-column layout */}
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-20 items-start">
+          {/* Left Column: Header & Callout */}
+          <div className="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div className="space-y-3">
+              <span className="text-[13px] font-bold tracking-tight text-black uppercase">
+                Selected Works
               </span>
-              <span className="text-[11px] font-black bg-black text-white px-2 py-0.5">
-                {proj.category}
-              </span>
+              <h1 className="text-[34px] sm:text-[42px] md:text-[48px] font-normal tracking-[-0.025em] text-black leading-[1.25] font-serif-display">
+                실질적인 변화를 만든<br />
+                주요 프로젝트
+              </h1>
+              <p className="mt-4 text-[15px] sm:text-[16px] leading-[1.75] text-black font-normal tracking-[-0.015em]">
+                BlinkUp이 다양한 파트너들과 함께 만들어낸 전략적 성공 사례와 디지털 제품들을 소개합니다.
+              </p>
             </div>
 
-            <h3 className="text-[20px] font-black text-black tracking-tight leading-snug">
-              {proj.title}
-            </h3>
-
-            <div className="p-3.5 bg-neutral-100 text-[14px] text-black font-bold flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-black shrink-0" />
-              <span>성과: {proj.result}</span>
-            </div>
-
-            <div className="flex flex-wrap gap-2 pt-1">
-              {proj.tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="text-[12px] px-2.5 py-1 bg-white border border-black text-black font-bold"
-                >
-                  #{tag}
-                </span>
-              ))}
+            {/* Bottom Callout in Left Column on desktop */}
+            <div className="p-6 lg:p-8 bg-black text-white space-y-3">
+              <h3 className="text-[20px] lg:text-[22px] font-black tracking-tight text-white">
+                다음 성공 사례의 주인공이 되어보세요
+              </h3>
+              <p className="text-[14px] text-white/80 leading-relaxed">
+                귀사의 비즈니스에 최적화된 맞춤 프로젝트 제안서를 준비해드립니다.
+              </p>
+              <button
+                onClick={() => onNavigate('contact')}
+                className="mt-2 w-full py-4 px-4 bg-white text-black font-black text-[15px] hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>프로젝트 문의하기</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* Bottom CTA */}
-      <div className="mt-12 p-6 bg-black text-white space-y-3">
-        <h3 className="text-[20px] font-black tracking-tight text-white">
-          다음 성공 사례의 주인공이 되어보세요
-        </h3>
-        <p className="text-[14px] text-white/80 leading-relaxed">
-          귀사의 비즈니스에 최적화된 맞춤 프로젝트 제안서를 준비해드립니다.
-        </p>
-        <button
-          onClick={() => onNavigate('contact')}
-          className="mt-2 w-full py-4 px-4 bg-white text-black font-black text-[15px] hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-        >
-          <span>프로젝트 문의하기</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+          {/* Right Column: Projects List */}
+          <div className="mt-10 lg:mt-0 lg:col-span-7 xl:col-span-7 border-t border-black">
+            {projects.map((proj) => (
+              <div
+                key={proj.id}
+                className="py-6 sm:py-8 border-b border-black space-y-3.5"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] sm:text-[13px] font-black text-black uppercase">
+                    {proj.client}
+                  </span>
+                  <span className="text-[11px] sm:text-[12px] font-black bg-black text-white px-2 py-0.5">
+                    {proj.category}
+                  </span>
+                </div>
+
+                <h3 className="text-[20px] sm:text-[22px] font-black text-black tracking-tight leading-snug">
+                  {proj.title}
+                </h3>
+
+                <div className="p-3.5 sm:p-4 bg-neutral-100 text-[14px] sm:text-[15px] text-black font-bold flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-black shrink-0" />
+                  <span>성과: {proj.result}</span>
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {proj.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[12px] sm:text-[13px] px-2.5 py-1 bg-white border border-black text-black font-bold"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

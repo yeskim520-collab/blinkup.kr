@@ -4,12 +4,12 @@ export const HeroSection: React.FC = () => {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <section id="hero-section" className="w-full bg-white">
-      {/* Full-width Edge-to-Edge Hero Image matching frog mobile layout */}
-      <div className="w-full overflow-hidden bg-black aspect-[16/10] sm:aspect-[16/9] relative select-none">
+    <section id="hero-section" className="w-full bg-black overflow-hidden select-none">
+      {/* Full-width Edge-to-Edge Hero Image matching frog editorial layout */}
+      <div className="w-full overflow-hidden bg-black aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] max-h-[620px] relative select-none">
         {!imageError ? (
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=85"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=85"
             alt="BlinkUp 팀 전략 및 크리에이티브 협업"
             referrerPolicy="no-referrer"
             onError={() => setImageError(true)}

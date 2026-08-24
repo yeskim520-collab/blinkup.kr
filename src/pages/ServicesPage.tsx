@@ -46,69 +46,75 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="px-6 pt-10 pb-16 bg-white animate-fade-in">
-      {/* Header */}
-      <div className="space-y-3">
-        <span className="text-[13px] font-bold tracking-tight text-black uppercase">
-          Our Services
-        </span>
-        <h1 className="text-[34px] sm:text-[38px] font-normal tracking-[-0.025em] text-black leading-[1.3] font-serif-display">
-          5단계 가치 창출<br />
-          엔드투엔드 서비스
-        </h1>
-        <p className="mt-4 text-[15px] leading-[1.75] text-black font-normal tracking-[-0.015em]">
-          발견부터 실현까지 체계적인 5단계 프로세스를 통해 브랜드의 성공을 견인합니다.
-        </p>
-      </div>
-
-      {/* Services List with crisp borders */}
-      <div className="mt-10 border-t border-black">
-        {serviceSteps.map((step) => (
-          <div 
-            key={step.num}
-            className="py-6 border-b border-black space-y-3"
-          >
-            <div className="flex items-baseline gap-2.5">
-              <span className="text-[22px] font-black text-black">
-                {step.num}
+    <div className="w-full bg-white px-6 md:px-12 lg:px-16 xl:px-20 pt-10 pb-16 lg:py-20 animate-fade-in">
+      <div className="max-w-[1360px] mx-auto w-full">
+        {/* Desktop 2-column layout */}
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-20 items-start">
+          {/* Left Column: Header and Quick Action */}
+          <div className="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div className="space-y-3">
+              <span className="text-[13px] font-bold tracking-tight text-black uppercase">
+                Our Services
               </span>
-              <h3 className="text-[18px] font-black text-black tracking-tight">
-                {step.title}
-              </h3>
+              <h1 className="text-[34px] sm:text-[42px] md:text-[48px] font-normal tracking-[-0.025em] text-black leading-[1.25] font-serif-display">
+                5단계 가치 창출<br />
+                엔드투엔드 서비스
+              </h1>
+              <p className="mt-4 text-[15px] sm:text-[16px] leading-[1.75] text-black font-normal tracking-[-0.015em]">
+                발견부터 실현까지 체계적인 5단계 프로세스를 통해 브랜드의 성공을 견인합니다.
+              </p>
             </div>
-
-            <p className="text-[15px] leading-[1.72] text-black">
-              {step.desc}
-            </p>
-
-            <ul className="space-y-1.5 pl-3.5 border-l-2 border-black text-[13px] text-black/80 font-medium">
-              {step.items.map((it, idx) => (
-                <li key={idx}>• {it}</li>
-              ))}
-            </ul>
 
             <div className="pt-2">
               <button
-                onClick={() => onNavigate('insight-detail', step.linkId)}
-                className="text-xs font-black text-black hover:opacity-75 flex items-center gap-1 cursor-pointer transition-opacity"
+                onClick={() => onNavigate('contact')}
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-black text-white font-extrabold text-[15px] hover:bg-neutral-800 transition-colors cursor-pointer"
               >
-                <span>관련 인사이트 칼럼 보기</span>
-                <ChevronRight className="w-3.5 h-3.5" />
+                <span>맞춤 서비스 상담 시작하기</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* CTA */}
-      <div className="mt-12 pt-6 border-t border-black">
-        <button
-          onClick={() => onNavigate('contact')}
-          className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-black text-white font-extrabold text-[15px] hover:bg-neutral-800 transition-colors cursor-pointer"
-        >
-          <span>맞춤 서비스 상담 시작하기</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+          {/* Right Column: Services List with crisp borders */}
+          <div className="mt-10 lg:mt-0 lg:col-span-7 xl:col-span-7 border-t border-black">
+            {serviceSteps.map((step) => (
+              <div 
+                key={step.num}
+                className="py-6 sm:py-8 border-b border-black space-y-3"
+              >
+                <div className="flex items-baseline gap-2.5">
+                  <span className="text-[22px] sm:text-[24px] font-black text-black">
+                    {step.num}
+                  </span>
+                  <h3 className="text-[18px] sm:text-[20px] font-black text-black tracking-tight">
+                    {step.title}
+                  </h3>
+                </div>
+
+                <p className="text-[15px] sm:text-[16px] leading-[1.72] text-black">
+                  {step.desc}
+                </p>
+
+                <ul className="space-y-1.5 pl-3.5 border-l-2 border-black text-[13px] sm:text-[14px] text-black/80 font-medium">
+                  {step.items.map((it, idx) => (
+                    <li key={idx}>• {it}</li>
+                  ))}
+                </ul>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => onNavigate('insight-detail', step.linkId)}
+                    className="text-xs sm:text-[13px] font-black text-black hover:opacity-75 flex items-center gap-1 cursor-pointer transition-opacity"
+                  >
+                    <span>관련 인사이트 칼럼 보기</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
