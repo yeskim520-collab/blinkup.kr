@@ -1,0 +1,6 @@
+{
+  "name": "BlinkUp Landing Page",
+  "description": "BlinkUp의 5단계 가치 창출 프로세스를 소개하는 반응형 모바일 랜딩 페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --font-serif-headline: "Noto Serif KR", "Batang", "Apple Myungjo", serif;
+  --font-sans-body: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    letter-spacing: -0.02em;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* frog-style Large Korean Serif Display Headline */
+  .font-serif-display {
+    font-family: var(--font-serif-headline);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+  }
+
+  .font-sans-ui {
+    font-family: var(--font-sans-body);
+  }
+}
+
+/* Smooth fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fullscreen Menu Slide / Fade */
+@keyframes menuEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-enter {
+  animation: menuEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
